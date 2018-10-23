@@ -5,11 +5,13 @@ $(function changeBackgroundColor(){
     });
     
     
-  $('listdiv input').on('click', function(){
+  $('#listdiv input').on('click', function(){
       $.getJSON('GSP-Fire-Stations.json', function(data){
-          $.each(data, function(item){
+         //alert('hi there')
+         data.stations.forEach(function(item){
+             $('#listdiv select').append('<option value="'+ item.address +'">' + item.name + '</option>');
               
-          })
+           })
       })
   })  
   function makeList() {
